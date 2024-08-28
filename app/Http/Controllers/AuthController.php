@@ -64,13 +64,18 @@ class AuthController extends Controller
             $image = Storage::putFile('public/images', $request->file('cover_image'));
             $image = basename($image);
 
+            $socials = "";
+            if(!empty($request->social)){
+                $socials = explode(",", $request->social);
+            }
+
             $user = new User();
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
             $user->birth_date = $request->birth_date;
             $user->cover_image = $image;
             $user->gender = $request->gender;
-            $user->social = implode(',', $request->social);
+            $user->social = $socials;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->save();
