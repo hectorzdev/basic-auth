@@ -1,0 +1,29 @@
+.login-nav{
+    border-bottom: 0;
+    gap: 10px;
+}
+
+.login-nav li a{
+    display: inline-flex;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #1567f4;
+    text-decoration: none !important;
+    color: #1567f4;
+}
+
+.login-nav .active a{
+    background-color: #1567f4;
+    color: #fff;
+}
+
+#password_validate{
+    list-style: none;
+}
+
+.logout-btn{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
