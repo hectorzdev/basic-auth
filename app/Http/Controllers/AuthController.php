@@ -66,7 +66,8 @@ class AuthController extends Controller
 
             $socials = "";
             if(!empty($request->social)){
-                $socials = explode(",", $request->social);
+                $export['socials'] = $request->social;
+                $socials = implode(",", $request->social);
             }
 
             $user = new User();
@@ -84,7 +85,6 @@ class AuthController extends Controller
         } catch (Exception $th) {
             $export['success'] = false;
             $export['msg'] = $th->getMessage();
-            // $export['line'] = $th->getLine();
         }
 
         return response()->json($export);
